@@ -1,0 +1,18 @@
+service: subsidy-calc-report-issue
+
+frameworkVersion: "3.29.0"
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  memorySize: 2048
+  stage: dev
+  region: ap-south-1
+  timeout: 15
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http: ANY /{proxy+}
+      - http: ANY /
